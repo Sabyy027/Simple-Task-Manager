@@ -7,6 +7,7 @@
 
     <form id="taskForm" action="{{ route('tasks.store') }}" method="POST" class="p-4 border rounded bg-light">
         @csrf
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="mb-3">
             <label for="title" class="form-label">Task Title</label>
             <input type="text" class="form-control" id="title" name="title" required>
