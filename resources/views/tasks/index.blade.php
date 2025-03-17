@@ -34,6 +34,7 @@
                         
                         <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" class="d-inline delete-form">
                             @csrf
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             @method('DELETE')
                             <button type="button" class="btn btn-danger btn-sm delete-btn" data-bs-toggle="modal" data-bs-target="#deleteModal" data-task-id="{{ $task->id }}">
                             Delete
