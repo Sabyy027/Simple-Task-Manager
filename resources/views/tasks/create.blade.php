@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container mt-5">
+<meta name="csrf-token" content="{{ csrf_token() }}">
     <h2>Create New Task</h2>
 
     <form id="taskForm" action="{{ route('tasks.store') }}" method="POST" class="p-4 border rounded bg-light">
