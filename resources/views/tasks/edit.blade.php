@@ -6,7 +6,7 @@
 
     <form action="{{ route('tasks.update', $task->id) }}" method="POST">
         @csrf
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        
         @method('PUT')
 
         <div class="mb-3">

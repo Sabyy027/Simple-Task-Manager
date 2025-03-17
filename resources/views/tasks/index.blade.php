@@ -12,6 +12,8 @@
                 <th>Description</th>
                 <th>Status</th>
                 <th>Actions</th>
+                <th>Created At</th>
+                <th>Updated At</th>
             </tr>
         </thead>
         <tbody>
@@ -34,14 +36,17 @@
                         
                         <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" class="d-inline delete-form">
                             @csrf
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            
                             @method('DELETE')
                             <button type="button" class="btn btn-danger btn-sm delete-btn" data-bs-toggle="modal" data-bs-target="#deleteModal" data-task-id="{{ $task->id }}">
                             Delete
                             </button>
                         </form>
 
-                
+                    <td>{{ $task->created_at->format('d M Y, H:i') }}</td>
+
+                    <td>{{ $task->updated_at->diffForHumans() }}</td>
+
                     <script>
                     $(document).ready(function () {
                         let deleteForm = $("#deleteForm");
